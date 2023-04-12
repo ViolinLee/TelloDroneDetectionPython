@@ -1,3 +1,5 @@
+"""https://github.com/Kazuhito00/mediapipe-python-sample"""
+
 import copy
 
 import cv2 as cv
@@ -7,12 +9,7 @@ import mediapipe as mp
 import numpy as np
 
 
-def draw_landmarks(
-        image,
-        landmarks,
-        # upper_body_only,
-        visibility_th=0.5,
-):
+def draw_landmarks(image, landmarks, visibility_th=0.5):
     image_width, image_height = image.shape[1], image.shape[0]
 
     landmark_point = []
@@ -102,141 +99,111 @@ def draw_landmarks(
 
     if len(landmark_point) > 0:
         # 右目
-        if landmark_point[1][0] > visibility_th and landmark_point[2][
-            0] > visibility_th:
-            cv.line(image, landmark_point[1][1], landmark_point[2][1],
-                    (0, 255, 0), 2)
-        if landmark_point[2][0] > visibility_th and landmark_point[3][
-            0] > visibility_th:
+        if landmark_point[1][0] > visibility_th and landmark_point[2][0] > visibility_th:
+            cv.line(image, landmark_point[1][1], landmark_point[2][1], (0, 255, 0), 2)
+        if landmark_point[2][0] > visibility_th and landmark_point[3][0] > visibility_th:
             cv.line(image, landmark_point[2][1], landmark_point[3][1],
                     (0, 255, 0), 2)
 
         # 左目
-        if landmark_point[4][0] > visibility_th and landmark_point[5][
-            0] > visibility_th:
+        if landmark_point[4][0] > visibility_th and landmark_point[5][0] > visibility_th:
             cv.line(image, landmark_point[4][1], landmark_point[5][1],
                     (0, 255, 0), 2)
-        if landmark_point[5][0] > visibility_th and landmark_point[6][
-            0] > visibility_th:
+        if landmark_point[5][0] > visibility_th and landmark_point[6][0] > visibility_th:
             cv.line(image, landmark_point[5][1], landmark_point[6][1],
                     (0, 255, 0), 2)
 
         # 口
-        if landmark_point[9][0] > visibility_th and landmark_point[10][
-            0] > visibility_th:
+        if landmark_point[9][0] > visibility_th and landmark_point[10][0] > visibility_th:
             cv.line(image, landmark_point[9][1], landmark_point[10][1],
                     (0, 255, 0), 2)
 
         # 肩
-        if landmark_point[11][0] > visibility_th and landmark_point[12][
-            0] > visibility_th:
+        if landmark_point[11][0] > visibility_th and landmark_point[12][0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[12][1],
                     (0, 255, 0), 2)
 
         # 右腕
-        if landmark_point[11][0] > visibility_th and landmark_point[13][
-            0] > visibility_th:
+        if landmark_point[11][0] > visibility_th and landmark_point[13][0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[13][1],
                     (0, 255, 0), 2)
-        if landmark_point[13][0] > visibility_th and landmark_point[15][
-            0] > visibility_th:
+        if landmark_point[13][0] > visibility_th and landmark_point[15][0] > visibility_th:
             cv.line(image, landmark_point[13][1], landmark_point[15][1],
                     (0, 255, 0), 2)
 
         # 左腕
-        if landmark_point[12][0] > visibility_th and landmark_point[14][
-            0] > visibility_th:
+        if landmark_point[12][0] > visibility_th and landmark_point[14][0] > visibility_th:
             cv.line(image, landmark_point[12][1], landmark_point[14][1],
                     (0, 255, 0), 2)
-        if landmark_point[14][0] > visibility_th and landmark_point[16][
-            0] > visibility_th:
+        if landmark_point[14][0] > visibility_th and landmark_point[16][0] > visibility_th:
             cv.line(image, landmark_point[14][1], landmark_point[16][1],
                     (0, 255, 0), 2)
 
         # 右手
-        if landmark_point[15][0] > visibility_th and landmark_point[17][
-            0] > visibility_th:
+        if landmark_point[15][0] > visibility_th and landmark_point[17][0] > visibility_th:
             cv.line(image, landmark_point[15][1], landmark_point[17][1],
                     (0, 255, 0), 2)
-        if landmark_point[17][0] > visibility_th and landmark_point[19][
-            0] > visibility_th:
+        if landmark_point[17][0] > visibility_th and landmark_point[19][0] > visibility_th:
             cv.line(image, landmark_point[17][1], landmark_point[19][1],
                     (0, 255, 0), 2)
-        if landmark_point[19][0] > visibility_th and landmark_point[21][
-            0] > visibility_th:
+        if landmark_point[19][0] > visibility_th and landmark_point[21][0] > visibility_th:
             cv.line(image, landmark_point[19][1], landmark_point[21][1],
                     (0, 255, 0), 2)
-        if landmark_point[21][0] > visibility_th and landmark_point[15][
-            0] > visibility_th:
+        if landmark_point[21][0] > visibility_th and landmark_point[15][0] > visibility_th:
             cv.line(image, landmark_point[21][1], landmark_point[15][1],
                     (0, 255, 0), 2)
 
         # 左手
-        if landmark_point[16][0] > visibility_th and landmark_point[18][
-            0] > visibility_th:
+        if landmark_point[16][0] > visibility_th and landmark_point[18][0] > visibility_th:
             cv.line(image, landmark_point[16][1], landmark_point[18][1],
                     (0, 255, 0), 2)
-        if landmark_point[18][0] > visibility_th and landmark_point[20][
-            0] > visibility_th:
+        if landmark_point[18][0] > visibility_th and landmark_point[20][0] > visibility_th:
             cv.line(image, landmark_point[18][1], landmark_point[20][1],
                     (0, 255, 0), 2)
-        if landmark_point[20][0] > visibility_th and landmark_point[22][
-            0] > visibility_th:
+        if landmark_point[20][0] > visibility_th and landmark_point[22][0] > visibility_th:
             cv.line(image, landmark_point[20][1], landmark_point[22][1],
                     (0, 255, 0), 2)
-        if landmark_point[22][0] > visibility_th and landmark_point[16][
-            0] > visibility_th:
+        if landmark_point[22][0] > visibility_th and landmark_point[16][0] > visibility_th:
             cv.line(image, landmark_point[22][1], landmark_point[16][1],
                     (0, 255, 0), 2)
 
         # 胴体
-        if landmark_point[11][0] > visibility_th and landmark_point[23][
-            0] > visibility_th:
+        if landmark_point[11][0] > visibility_th and landmark_point[23][0] > visibility_th:
             cv.line(image, landmark_point[11][1], landmark_point[23][1],
                     (0, 255, 0), 2)
-        if landmark_point[12][0] > visibility_th and landmark_point[24][
-            0] > visibility_th:
+        if landmark_point[12][0] > visibility_th and landmark_point[24][0] > visibility_th:
             cv.line(image, landmark_point[12][1], landmark_point[24][1],
                     (0, 255, 0), 2)
-        if landmark_point[23][0] > visibility_th and landmark_point[24][
-            0] > visibility_th:
+        if landmark_point[23][0] > visibility_th and landmark_point[24][0] > visibility_th:
             cv.line(image, landmark_point[23][1], landmark_point[24][1],
                     (0, 255, 0), 2)
 
         if len(landmark_point) > 25:
             # 右足
-            if landmark_point[23][0] > visibility_th and landmark_point[25][
-                0] > visibility_th:
+            if landmark_point[23][0] > visibility_th and landmark_point[25][0] > visibility_th:
                 cv.line(image, landmark_point[23][1], landmark_point[25][1],
                         (0, 255, 0), 2)
-            if landmark_point[25][0] > visibility_th and landmark_point[27][
-                0] > visibility_th:
+            if landmark_point[25][0] > visibility_th and landmark_point[27][0] > visibility_th:
                 cv.line(image, landmark_point[25][1], landmark_point[27][1],
                         (0, 255, 0), 2)
-            if landmark_point[27][0] > visibility_th and landmark_point[29][
-                0] > visibility_th:
+            if landmark_point[27][0] > visibility_th and landmark_point[29][0] > visibility_th:
                 cv.line(image, landmark_point[27][1], landmark_point[29][1],
                         (0, 255, 0), 2)
-            if landmark_point[29][0] > visibility_th and landmark_point[31][
-                0] > visibility_th:
+            if landmark_point[29][0] > visibility_th and landmark_point[31][0] > visibility_th:
                 cv.line(image, landmark_point[29][1], landmark_point[31][1],
                         (0, 255, 0), 2)
 
             # 左足
-            if landmark_point[24][0] > visibility_th and landmark_point[26][
-                0] > visibility_th:
+            if landmark_point[24][0] > visibility_th and landmark_point[26][0] > visibility_th:
                 cv.line(image, landmark_point[24][1], landmark_point[26][1],
                         (0, 255, 0), 2)
-            if landmark_point[26][0] > visibility_th and landmark_point[28][
-                0] > visibility_th:
+            if landmark_point[26][0] > visibility_th and landmark_point[28][0] > visibility_th:
                 cv.line(image, landmark_point[26][1], landmark_point[28][1],
                         (0, 255, 0), 2)
-            if landmark_point[28][0] > visibility_th and landmark_point[30][
-                0] > visibility_th:
+            if landmark_point[28][0] > visibility_th and landmark_point[30][0] > visibility_th:
                 cv.line(image, landmark_point[28][1], landmark_point[30][1],
                         (0, 255, 0), 2)
-            if landmark_point[30][0] > visibility_th and landmark_point[32][
-                0] > visibility_th:
+            if landmark_point[30][0] > visibility_th and landmark_point[32][0] > visibility_th:
                 cv.line(image, landmark_point[30][1], landmark_point[32][1],
                         (0, 255, 0), 2)
     return image
@@ -321,16 +288,13 @@ if __name__ == "__main__":
 
         # 描画 ################################################################
         if enable_segmentation and results.segmentation_mask is not None:
-            # セグメンテーション
             mask = np.stack((results.segmentation_mask,) * 3,
                             axis=-1) > 0.5
             bg_resize_image = np.zeros(img.shape, dtype=np.uint8)
             bg_resize_image[:] = (0, 0, 0)
             debug_image = np.where(mask, debug_image, bg_resize_image)
         if results.pose_landmarks is not None:
-            # 外接矩形の計算
             brect = calc_bounding_rect(debug_image, results.pose_landmarks)
-            # 描画
             debug_image = draw_landmarks(
                 debug_image,
                 results.pose_landmarks,
@@ -339,7 +303,6 @@ if __name__ == "__main__":
             # debug_image = draw_bounding_rect(True, debug_image, brect)
 
         out.write(debug_image)
-
-        # cv.imwrite(out_path, debug_image)
+        cv.imwrite(out_path, debug_image)
 
     out.release()
