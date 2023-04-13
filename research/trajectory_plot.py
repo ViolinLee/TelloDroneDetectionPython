@@ -230,7 +230,7 @@ class TrajectoryPlot:
 
 
 if __name__ == '__main__':
-    video_path = 'tieshankao43.mp4'
+    video_path = 'yuanban.mp4'
 
     traj_plotter = TrajectoryPlot(model_complexity=2,
                                   enable_segmentation=False,
