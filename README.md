@@ -17,17 +17,17 @@
 * pyqt5
 
 # 演示
-1. research/trajectory_plot.py：分别使用matplotlib和opencv绘制视频上的人体关键点。首次运行会缓存对应视频每帧检测出的关键点数据至`static_plot_data.pkl`文件，若更换新的视频预测，需要先将该文件删除，以在重新运行时生成并缓存新的`static_plot_data.pkl`文件。
+1. research/trajectory_plot.py：分别使用matplotlib和opencv绘制视频上的人体关键点。首次运行会缓存对应视频每帧检测出的关键点数据至`static_plot_data.pkl`文件，若更换新的视频预测，需要先将该文件删除，以在重新运行时生成并缓存新的`static_plot_data.pkl`文件。   
 ![image](resources/trajplot.gif)
 ![image](resources/raw_frame.gif)
 
-2. research/animate.py：使用结构十分简单的RNN模型对视频上的任务进行真假IKUN预测。该RNN模型由GRU层、全连接层构成。
+2. research/animate.py：使用结构十分简单的RNN模型对视频上的任务进行真假IKUN预测。该RNN模型由GRU层、全连接层构成。   
 ![image](resources/animation.gif)
 
 3. research/write_frame_landmarks.py：提取视频中的每帧图像并保存在`analysis_frames/raw_frames`目录下，对每帧图像进行关键点检测，并保存在`analysis_frames/landmark`目录下。最后还生成人体前景分割后的视频片段。   
 ![image](resources/segmentation.gif)
 
-4. research/patch_video.py：将指定目录（代码中`video_root`）下的多个视频组合成一个1080P的视频。视频总帧数取各视频帧数的最小值M，每个视频只保留前M帧画面。
+4. research/patch_video.py：将指定目录（代码中`video_root`）下的多个视频组合成一个1080P的视频。视频总帧数取各视频帧数的最小值M，每个视频只保留前M帧画面。   
 ![image](resources/composition.gif)
 
 5. research/training.ipynb：数据预处理及IKUN识别模型（RNN）的训练。本次试验的正样本数量为55个，通过数据增强后达到152个。数据量很少，但仍达到不错的预测结果。在多组不同序列数目的对照试验中，输入数据的序列数目为45时效果最好。
